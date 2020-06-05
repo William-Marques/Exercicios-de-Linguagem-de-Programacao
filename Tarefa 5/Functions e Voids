@@ -1,0 +1,48 @@
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+int numero1 = 5;
+int numero2 = 4;
+int calcula1(int n1, int n2);
+void calcula2(int n1);
+void calcula3(int n1, int n2);
+
+int main(){
+	setlocale(LC_ALL, "Portuguese");
+	
+	//Chamar e imprimir retorno da função calcula
+	cout << "Fazendo Cout no int main para calcular e exibir o que tem na Funcao Calcula1, que e " << calcula1(numero1, numero2) << endl<<endl<<endl;
+	
+	//Chamar e imprimir retorno do void calcula2
+	// cout << calcula2(numero1, numero2); DA ERRO PQ NÃO TEM RETORNO
+	calcula2(1051);
+	
+	//Chamar o void calcula3
+	calcula3(numero1, numero2);
+	system("pause");
+}
+
+int calcula1(int n1,int n2){
+  int resultado = n1 + n2;
+  return resultado; //aqui o return da function tem uma variavel pois é onde retorna o valor
+}
+
+void calcula2(int n1){
+  cout << "No código vocês viram que não da para imprimir o valor do Void Calcula2," << endl;
+  cout << "pois o Void não tem valor e vai dar erro na hora de compilar."<<endl;
+  cout << "mas podemos inserir valores no void para usar na sua programação interna,"<<endl;
+  cout << "como exemplo esse Void Calcula 2 esta pegando um valor inserido nele"<<endl;
+  cout << " e exibindo através do comando Cout interno dele. O valor é " << n1 << endl <<endl<<endl;
+  return ; //aqui o return do void não tem valor, do contrario o compilador vai apontar erro pois void não retorna valor
+}
+  
+void calcula3(int n1,int n2){
+  int resultado = n1 + n2;
+  cout << "Se este Cout foi executado e porque o Void Calcula3 foi executado," <<endl;
+  cout << "embora esse void nao restorne resultado, mas ele faz tudo que esta"<< endl;
+  cout << "programado dentro dele. E dentro dele esta programado para somar as"<<endl;
+  cout << " variave locais n1 e n2 e exibir o valor que e " << resultado<<endl<<endl;
+  return; //aqui o return do void não tem valor, do contrario o compilador vai apontar erro pois void não retorna valor
+}

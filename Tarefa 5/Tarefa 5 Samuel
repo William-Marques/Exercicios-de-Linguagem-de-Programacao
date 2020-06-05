@@ -1,0 +1,98 @@
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+double n1;
+double n2;
+double n3;
+double result;
+double lerV1();
+double lerV2();
+double lerV3();
+double calcMedia(double valor1, double valor2, double valor3);
+void menu();
+void resultado ( double mediaReal);
+
+int main(){
+  Repetir:
+  system("clear");
+
+  menu();
+
+system("sleep 2");
+goto Repetir;
+return 0;
+}
+
+void menu(){
+
+  int controle;
+
+  system("clear");
+  cout << "***MENU***" << endl << endl;
+  cout << "Opção 1 - Ler valores" << endl;
+  cout << "Opção 2 - Calcular Média" << endl;
+  cout << "Opção 3 - Exibir Resultado" << endl;
+  cout << "Opção 4 - Sair" << endl << endl;
+
+  cout << "Digite a opção desejada: ";
+  cin >> controle;
+
+  switch (controle){
+    case 1:
+      n1=lerV1();
+      n2=lerV2();
+      n3=lerV3();
+      break;
+    case 2:
+      result = calcMedia(n1, n2, n3);
+      break;
+    case 3:
+      resultado (result);
+      break;
+    case 4:
+      cout << "saindo..." << endl;
+      exit(0);
+    default:
+      cout << "Opção errada... saindo...";
+      exit(0);
+      break;
+  }
+}
+
+double lerV1(){
+  double valor1;
+  cout << "\nDigite o Primeiro Valor: ";
+  cin >> valor1;
+  return valor1;
+}
+
+double lerV2(){
+  double valor2;
+  cout << "\nDigite o Segundo Valor: ";
+  cin >> valor2;
+  return valor2;
+}
+
+double lerV3(){
+  double valor3;
+  cout << "\nDigite o Terceiro Valor: ";
+  cin >> valor3;
+  return valor3;
+}
+
+double calcMedia(double valor1, double valor2, double valor3){
+  double media = cbrt((valor1 * valor2 * valor3));
+  return media;
+}
+
+void resultado ( double mediaReal){
+  cout << setfill('*');
+  cout << fixed << setprecision(2); 
+  
+  cout << "\nA média geométrica para os valores digitados é: " << setw(8) << mediaReal << endl;
+  system ("sleep 3");
+}

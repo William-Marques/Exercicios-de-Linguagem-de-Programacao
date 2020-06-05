@@ -1,0 +1,51 @@
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+#include <locale.h>
+
+using namespace std;
+
+double lerCotD();
+double lerD();
+double calcConver(double D, double cotD);
+void exibir (double reais);
+
+int main(){
+    system("clear");
+    setlocale(LC_ALL, "Portuguese");
+    
+    double cotacao, dinheiro, resultado;
+    
+    cotacao = lerCotD();
+    dinheiro = lerD();
+    resultado = calcConver(cotacao, dinheiro);
+    exibir(resultado);
+    
+    system("sleep 3");
+    return 0;
+}
+
+double lerCotD(){
+	double cotD;
+	cout<< "\nDigite a quotação do Dolar de hoje: ";
+	cin>>cotD;
+	return cotD;
+}
+
+double lerD(){
+	double D;
+	cout<< "\nDigite o Valor que você possui em Dólares: ";
+	cin>>D;
+	return D;
+}
+
+double calcConver(double D, double cotD){
+	double reais;
+	reais = cotD * D;
+	return reais;
+}
+
+void exibir (double reais){
+	cout<< "\nVocê possui R$" <<  reais << endl;
+	system("sleep 3");
+}

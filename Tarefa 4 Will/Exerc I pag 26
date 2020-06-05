@@ -1,0 +1,87 @@
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <math.h>
+
+using namespace std;
+int calc(int n1, int n2);
+void mostrar();
+void mostrarmenu();
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+  int tecla;
+
+  MENU:
+  mostrarmenu();
+  cout << "\nDigite a opção desejada: ";
+  cin >> tecla;
+
+  switch (tecla){
+      case 1:
+          cout << endl;
+          mostrar();
+          goto MENU;
+          break;
+      case 2:
+          goto OUT;
+          break;
+      default:
+          cout << "Opção inválida!!" << endl << endl;
+          goto MENU;
+  }
+
+OUT:
+  return 0;
+
+}
+
+//Função void para mostrar o resultado
+void mostrar()  {
+  int A, B, resp;
+  cout << "Digite o primeiro número: ";
+  cin >> A;
+  cout << "Digite o segundo número: ";
+  cin >> B;
+
+  resp = calc(A, B);
+  
+
+  cout << endl << "O resultado é " << resp << endl  << endl;
+  system("echo '\033[01;91mReiniciando...\033[01;97m'");
+  system("sleep 4");
+  }
+
+
+//Função de calculo
+int calc(int n1, int n2){
+  int result;
+
+  result = pow((n1 - n2), 2);
+
+  return result;
+
+}
+
+//Menu de inicio com descrição do programa
+void mostrarmenu(){
+    system("clear");
+    cout << "\n\nIniciando o Ruindows..." << endl;
+    system("echo '\033[01;91mNão desligue o computador!\033[01;97m'");
+    system("sleep 4");
+    system("clear");
+
+    cout << " __________________________ " << endl;
+    cout << "|                          |" << endl;
+    cout << "|      Programa para       |" << endl;
+    cout << "|   imprimir o resultado   |" << endl;
+    cout << "|      do quadrado da      |" << endl;
+    cout << "|   diferença do primeiro  |" << endl;
+    cout << "|    valor pelo segundo    |" << endl;
+    cout << "|__________________________|" << endl;
+    cout << "|                          |" << endl;
+    cout << "| 1 |  Executar            |" << endl;
+    cout << "| 2 |    Sair              |" << endl;
+    cout << "|__________________________|" << endl;
+
+}

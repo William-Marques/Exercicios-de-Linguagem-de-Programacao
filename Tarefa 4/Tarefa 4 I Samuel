@@ -1,0 +1,51 @@
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+#include <locale.h>
+
+using namespace std;
+
+int lerA();
+int lerB();
+double calcQuadrado(int A, int B);
+//int exibir (double quadrado);
+void exibir(double quadrado);
+
+int main(){
+    system("clear");
+    setlocale(LC_ALL, "Portuguese");
+    
+    int valorA, valorB, mostrar;
+    double quadrado;
+    
+    valorA = lerA();
+    valorB = lerB();
+    quadrado = calcQuadrado(valorA, valorB);
+    exibir(quadrado);
+    
+    return 0;
+}
+
+int lerA(){
+	int A;
+	cout<< "\nDigite o Valor de A: ";
+	cin>>A;
+	return A;
+}
+
+int lerB(){
+	int B;
+	cout<< "\nDigite o Valor de B: ";
+	cin>>B;
+	return B;
+}
+
+double calcQuadrado(int A, int B){
+	double quadrado = pow((A - B),2);
+	return quadrado;
+}
+
+void exibir(double quadrado){
+  cout << "\nO Quadrado da diferença de A por B é " << quadrado << endl;
+	system("sleep 3");
+}

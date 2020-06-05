@@ -1,0 +1,2 @@
+/* Não digite código aqui. Digite os códigos em outros arquivos. Quando for executar um arquivo renomeie com extenção .cpp e ele será executa ao clicar em Run. Não se esqueça de remover a extenção .cpp ao terminar o uso do arquivo.
+*/

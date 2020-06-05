@@ -1,0 +1,83 @@
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <math.h>
+
+using namespace std;
+double calc(double cotacao, double qtd);
+void mostrarmenu();
+void mostrar();
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+  int tecla;
+
+  MENU:
+  mostrarmenu();
+  cout << "Digite a opção desejada: ";
+  cin >> tecla;
+
+  switch (tecla){
+      case 1:
+          cout << endl;
+          mostrar();
+          goto MENU;
+          break;
+      case 2:
+          goto OUT;
+          break;
+      default:
+          cout << "Opção inválida!!" << endl << endl;
+          goto MENU;
+  }
+
+  OUT:
+  return 0;
+}
+
+void mostrar(){
+  double cot, dolar, real;
+  cout << "Digite a cotação do dolar: R$ ";
+  cin >> cot;
+  cout << "Digite o quanto de dólares você possui: $ ";
+  cin >> dolar;
+
+  real = calc(cot, dolar);
+
+  cout << endl << "$ " << dolar << " em moeda brasileira vale R$ " << real << endl  << endl;
+  system("echo '\033[01;91mReiniciando...\033[01;97m'");
+  system("sleep 6");
+
+}
+
+double calc(double cotacao, double qtd){
+  double result;
+
+  result = cotacao * qtd;
+
+  return result;
+
+}
+
+void mostrarmenu(){
+    system("clear");
+    cout << "\n\nIniciando o Ruindows..." << endl;
+    system("echo '\033[01;91mNão desligue o computador!\033[01;97m'");
+    system("sleep 4");
+    system("clear");
+
+    cout << " __________________________" << endl;
+    cout << "|                          |" << endl;
+    cout << "|   Programa que efetua    |" << endl;
+    cout << "|    a apresentação do     |" << endl;
+    cout << "|    valor da conversão    |" << endl;
+    cout << "|      em real de um       |" << endl;
+    cout << "|   valor lido em dólar    |" << endl;
+    cout << "|__________________________|" << endl;
+    cout << "|                          |" << endl;
+    cout << "| 1 |  Executar            |" << endl;
+    cout << "| 2 |    Sair              |" << endl;
+    cout << "|__________________________|" << endl;
+
+}
+   
