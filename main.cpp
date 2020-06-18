@@ -1,2 +1,6 @@
-/* Não digite código aqui. Digite os códigos em outros arquivos. Quando for executar um arquivo renomeie com extenção .cpp e ele será executa ao clicar em Run. Não se esqueça de remover a extenção .cpp ao terminar o uso do arquivo.
+/*
+NÃO USAR O ARQUIVO MAIN.CPP
+RENOMEAR O ARQUIVO QUE ESTA USANDO PARA .CPP
+AO TERMINAR DE USAR REMOVER O .CPP DO SEU ARQUIVO PARA
+QUE OUTRAS PESSOAS CONSIGAM EXECUTAR SEUS ARQUIVOS
 */
