@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+#include <locale.h>
+#include <cstdlib>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+double a, b, c, s, ah;
+void inicializacao();
+void mostrarmenu();
+double lerA();
+double lerB();
+double lerC();
+double cal_S(double a, double b, double c);
+double cal_AH(double a, double b, double c, double s);
+void exibir(double a, double b, double c, double s, double ah);
+
+int main() {
+  inicializacao();//chama animação de inicializacao
+  mostrarmenu();//Chama o menu grafico de controle    
+}
+
+//void com simulação de inicialização
+void inicializacao(){
+    system("clear");
+    cout << "\n\nIniciando o Ruindows..." << endl;
+    system("echo '\033[01;91mNão desligue o computador!\033[01;97m'");
+    system("sleep 4");
+    system("clear");
+}
+
+//Menu gráfico de inicio com descrição do programa
+void mostrarmenu(){
+  int tecla;
+repetir:
+    cout << " ______________________________ " << endl;
+    cout << "|        Programa para         |" << endl;
+    cout << "|       calcular a metade      |" << endl;
+    cout << "|     da soma de ABC <S> e a   |" << endl;
+    cout << "| Raiz de S*(S-A)*(S-B)*(S-C)  |" << endl;
+    cout << "|             <SH>             |" << endl;
+    cout << "|______________________________| " << endl;
+    cout << "|                              |" << endl;
+    cout << "| 1 |  Ler valores             |" << endl;
+    cout << "| 2 |  Calcular                |" << endl;
+    cout << "| 3 |  Exibir tudo             |" << endl;
+    cout << "| 4 |  Sair                    |" << endl;
+    cout << "|______________________________|" << endl;
+    cout << "|         Memória              |" << endl;
+    cout << "|                              |" << endl;
+    cout << "| Primeiro Número " << setfill(' ') << setw(8) <<  a << "     |" << endl;
+    cout << "| Segundo Número " << setfill(' ') << setw(9) <<  b << "     |" << endl;
+    cout << "| Terceiro Número " << setfill(' ') << setw(8) <<  c << "     |" << endl;
+    cout << "|                              |" << endl;
+    cout << "| Calculo de S " << fixed << setprecision(2) << setfill(' ') << setw(11) <<  s << "     |" << endl;
+    cout << "|                              |" << endl;
+    cout << "| Calculo de SH " << fixed << setprecision(2) << setfill(' ') << setw(10) <<  ah << "     |" << endl;
+    cout << "|______________________________|" << endl << endl ;
+    cout << "\nDigite a opção desejada: ";
+  
+    cin >> tecla;
+
+    if(tecla == 1) {
+        cout << endl;
+        a = lerA();
+        b = lerB();
+        c = lerC();
+        system("clear");
+        goto repetir;
+    } else if(tecla == 2) {
+        s = cal_S(a, b, c);
+        ah = cal_AH(a, b, c, s);
+        system("clear");      
+        goto repetir;
+    } else if(tecla == 3) {
+        exibir(a, b, c, s, ah);
+        system("clear");
+        goto repetir;
+    } else {
+        cout << endl;
+        system("echo '\033[01;91mSaindo...\033[01;97m'");
+        system("sleep 3");
+        system("clear");
+        exit(0);
+    }
+}
+
+// Ler A
+double lerA(){
+    double a;
+    cout << "Digite o valor de A ";
+    cin >> a;
+    return a;}
+
+// Ler B
+double lerB(){
+    double b;
+    cout << "Digite o valor de B ";
+    cin >> b;
+    return b;}
+
+// Ler C
+double lerC(){
+    double c;
+    cout << "Digite o valor de C ";
+    cin >> c;
+    system("echo '\033[01;91mNúmeros Armazenados.\033[01;97m'");
+  system("sleep 2");
+    return c;}
+
+// Calcular S
+double cal_S(double a, double b, double c) {
+    system("echo '\033[01;91mCalculando valores...\033[01;97m'");
+  system("sleep 2");
+  system("echo '\033[01;91mValores calculado.\033[01;97m'");
+  system("sleep 1");
+    return (a + b + c) / 2;}
+
+// Calcular AH
+double cal_AH(double a, double b, double c, double s) {
+    return pow(s * (s - a) * (s - b) * (s - c) , 2);}
+
+// Exibir
+void exibir(double a, double b, double c, double s, double ah) {
+    cout << "O valor de A é: " << a << endl;
+    cout << "O valor de B é: " << b << endl;
+    cout << "O valor de C é: " << c << endl << endl;
+    cout << "O valor de S é: " << s << endl << endl;
+    cout << "O valor de AH é: " << ah << endl;
+    system("echo '\033[01;91mReiniciando...\033[01;97m'");
+    system("sleep 6");}

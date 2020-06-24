@@ -1,0 +1,84 @@
+#include <iostream>   
+#include <cstdlib>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+double lera (){ 
+double a;
+cout << "Valor de A:"; 
+cin >> a;
+return a;}
+
+double lerb(){ 
+double b;
+cout << "Valor de B:"; 
+cin >>b;    
+return b;}
+
+double lerc(){ 
+double c;   
+cout << "Valor de C:"; 
+cin >> c;     
+return c;}
+
+double calc_s (double a, double b, double c){
+double s = (a+b+c)/2;
+return s;}
+
+double calc_ah (double a, double b, double c, double s){ 
+double ah = s*(s-a)*(s-b)*(s-c);
+return ah;}
+
+void exibir (double a, double b, double c, double s, double ah){
+cout<<setfill('.');
+cout<<fixed<<setprecision(2);  
+cout<<"\nValor de A:"<<setw(10)<<a;  
+cout<<"\nValor de B:"<<setw(10)<<b;  
+cout<<"\nValor de C:"<<setw(10)<<c; 
+cout<<"\nValor do calculo 1:"<<setw(10)<<s;
+cout<<"\nValor do calculo 2:"<<setw(10)<<ah;
+system("pause");}
+
+int main (){
+setlocale(LC_ALL, "Portuguese"); 
+double a, b, c, s, ah;     
+int tecla;
+MENU:   
+cout << "\nmenu\n1 Ler\n2 Calcular\n3 Exibir\n4 Sair\nEscolha\n";
+cin >> tecla;
+if(tecla==1){         
+a = lera ();    
+b = lerb ();    
+c = lerc ();
+cout<<"Dados lidos\n";
+system("sleep 3");
+system("clear");
+goto MENU;
+return 0;
+
+}else if (tecla == 2) {  
+s=calc_s(a, b, c);
+ah=calc_ah(a, b, c, s);
+cout<<"Dados calculados\n";
+system("sleep3");
+system("clear");
+goto MENU;
+return 0;
+
+}else if (tecla==3){  
+exibir (a, b, c, s, ah);
+cout<<"Dados exibido\n";
+system("sleep 3");
+system("clear");
+goto MENU;
+return 0;
+
+}else if (tecla ==4){
+cout << "\nO programa será finalizado!\n";  
+system ("sleep 3");   
+exit (0);}
+
+goto MENU;
+return 0;
+}

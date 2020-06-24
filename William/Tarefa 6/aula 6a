@@ -24,7 +24,6 @@ MENU: /* marca um ponto no código para retornar aqui depois */
 system("clear");
 cout << "\nmenu\n1 Executar\n2 Finalizar\nitem:"; 
 cin >> tecla;
-cout << endl;
 
 switch ( tecla ) {  
   case 1:
@@ -98,24 +97,24 @@ double cal_x2 ( double a, double b, double delta )
 
 void exibir ( double a, double b, double c, double delta )
 {
- cout << fixed << setprecision(2) << "\nValor de ....A:" << setfill(' ') << setw(10) << a;
- cout << "\nValor de ....B:" << setfill(' ') << setw(10) << b;
- cout << "\nValor de ....C:" << setfill(' ') << setw(10) << c << endl;
- cout << "\nValor de Delta:" << setfill(' ') << setw(10) << delta << endl;
+ cout << fixed << setprecision(2) << "\nValor de ....A:" << setfill(' ') << setw(15) << a;
+ cout << "\nValor de ....B:" << setfill(' ') << setw(15) << b;
+ cout << "\nValor de ....C:" << setfill(' ') << setw(15) << c;
+ cout << "\nValor de Delta:" << setfill(' ') << setw(15) << delta;
 
 if ( delta >= 0 )
  { 
    double x1 = cal_x1 ( a , b , delta);
    double x2 = cal_x2( a , b , delta);
    
-   cout << fixed << setprecision(2) << "\nValor de ....x1:" << setfill(' ') << setw(9) << x1;
-   cout << "\nValor de ....x2:" << setfill(' ') << setw(9) << x2 << endl;
+   cout << fixed << setprecision(2) << "\nValor de ....x1:" << setfill(' ') << setw(14) << x1;
+   cout << "\nValor de ....x2:" << setfill(' ') << setw(14) << x2 << endl;
   }
 else 
 { 
   cout << "\nImpossível calcular x1 e x2\nDelta é negativo!";
 }
 
-system("sleep 7");
+system("sleep 5");
 
 } // fim do void exibir
