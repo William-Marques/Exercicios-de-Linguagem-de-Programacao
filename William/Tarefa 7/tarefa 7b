@@ -1,0 +1,77 @@
+#include"iostream"
+#include"cstdlib"
+#include <iomanip>
+using namespace std;
+
+/* Quadro resumo de funções ou Declarações de funções/subrotinas */
+double lerprestacao();
+double lerdias();
+double calcmulta(double valor);
+double calcjuros(double valor, double dias);
+double calcvlpagar(double valor, double multa, double juros);
+void exibir (double valor, double dias, double multa, double juros, double vlpagar );
+
+/* Quadro resumo de funções ou Declarações de funções/subrotinas */
+
+int main ( ) {
+  setlocale(LC_ALL, "Portuguese");
+  double valor, dias, multa, juros, vlpagar;
+  int tecla = 0;
+
+  while (tecla != 4) {
+    system("clear");
+    cout << "\nPrograma para Calcular o valor\na pagar de prestação com\nmulta e juros\n\nmenu\n\n1 Ler \n2 Calcular \n3 Exibir\n4 Sair\n\nItem:";
+    cin >> tecla;
+
+    if (tecla == 1 ){
+      valor=lerprestacao();
+      dias=lerdias();
+    }else if (tecla ==2 ) {
+      multa=calcmulta(valor);
+      juros=calcjuros(valor, dias);
+      vlpagar=calcvlpagar(valor, multa, juros);      
+      cout << "\nCálculo bem sucedido!" << endl;
+      system("sleep 1");
+    }else if (tecla ==3 ) {
+      exibir (valor, dias, multa, juros, vlpagar ); }
+  }// fim while
+  
+cout << "\nPrograma finalizado!\n";
+system("sleep 3");
+return 0;
+}
+
+double lerprestacao(){
+  double valor;
+  cout << "\nValor Prestação: ";
+  cin >> valor;
+  return valor; }
+
+double lerdias(){
+  double dias;
+  cout << "\nQuantidade de dias em atraso: ";
+  cin >> dias;
+  return dias; }
+  
+double calcmulta(double valor) {
+  double multa;
+  multa = valor * 0.02;
+  return multa; }
+
+double calcjuros(double valor, double dias) {
+  double juros;
+  juros = dias*((valor * 0.01)/30);
+  return juros; }
+
+double calcvlpagar(double valor, double multa, double juros) {
+  double vlpagar;
+  vlpagar = valor + multa + juros;
+  return vlpagar; }
+    
+void exibir (double valor, double dias, double multa, double juros, double vlpagar ) {
+    system("clear");    
+    cout << "\nValor da Prestação..: " << setfill(' ') << setw(9)<< valor;
+    cout << "\nQuantidade de dias: " << setfill(' ') << setw(11) << dias;
+    cout << "\nValor da Multa: " << setfill(' ') << setw(15) << multa;
+    cout << "\nValor do Juros: " << setfill(' ') << setw(15) << juros << endl;cout << "\nValor Total: " << setfill(' ') << setw(18) << vlpagar << endl;    
+    system("sleep 10"); }

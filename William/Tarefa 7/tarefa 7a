@@ -1,0 +1,71 @@
+#include"iostream"
+#include"cstdlib"
+#include <iomanip>
+using namespace std;
+
+/* Quadro resumo de funções ou Declarações de funções/subrotinas */
+double lerbase();
+double leraltura();
+double calcarea(double base, double altura);
+double calcular_media(double saldo, double contador);
+void exibir (double base, double altura, double area, double media );
+/* Quadro resumo de funções ou Declarações de funções/subrotinas */
+
+
+int main ( ) {
+  double base, altura, area, saldo, media, contador;
+  int tecla = 0;
+
+  while (tecla != 4) {
+    system("clear");
+    cout << "\nmenu\n\n1 Ler \n2 Calcular \n3 Exibir\n4 Sair\n\nItem:";
+    cin >> tecla;
+
+    if (tecla == 1 ){
+      base=lerbase();
+      altura=leraltura();
+    }else if (tecla ==2 ) {
+      area=calcarea(base,altura);
+      saldo = saldo + area;
+      contador ++;
+      media=calcular_media(saldo, contador);
+      cout << "\nCálculo bem sucedido!" << endl;
+      system("sleep 1");
+    }else if (tecla ==3 ) {
+      exibir(base, altura, area, media); }
+  }// fim while
+  
+cout << "\nPrograma finalizado!\n";
+system("sleep 3");
+return 0;
+}
+
+double lerbase(){
+  double base;
+  cout << "\nLer Base:";
+  cin >> base;
+  return base; }
+
+double leraltura(){
+  double altura;
+  cout << "\nLer Altura:";
+  cin >> altura;
+  return altura; }
+  
+double calcarea(double base, double altura) {
+  double area;
+  area = (base * altura)/2;
+  return area; }
+
+double calcular_media(double saldo, double contador) {
+  double media;
+  media = saldo / contador;
+  return media; }
+    
+void exibir (double base, double altura, double area, double media ) {
+    system("clear");    
+    cout << setprecision(2) << "\nUltima Base..: " << setfill(' ') << setw(7)<< base;
+    cout << "\nUltima Altura: " << setfill(' ') << setw(7) << altura;
+    cout << "\nUltima Area..: " << setfill(' ') << setw(7) << area;
+    cout << "\nMédia: " << setfill(' ') << setw(15) << media << endl;    
+    system("sleep 6"); }
